@@ -1,5 +1,5 @@
 /* ============================================================
-   REVELLÓN — configuración editable
+   REVELLON — configuración editable
    ------------------------------------------------------------
    Todos los datos de contacto están vacíos a propósito: no se
    inventó ningún email, teléfono ni dirección.

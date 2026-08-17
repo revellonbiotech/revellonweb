@@ -1,5 +1,5 @@
 /* ============================================================
-   REVELLÓN — landing
+   REVELLON — landing
    Paleta tomada del logotipo: crudo #FBF6F0 · lana #DFCAAB · oliva #748245
    ============================================================ */
 
@@ -97,16 +97,6 @@ fieldset{ margin:0; padding:0; border:0; }
   display:flex; align-items:center; gap:1.5rem;
 }
 .brand{ display:flex; align-items:center; gap:.6rem; margin-right:auto; }
-.brand__mark{
-  width:38px; height:38px; border-radius:50%;
-  mix-blend-mode:multiply;
-  transition:transform .6s var(--ease);
-}
-.brand:hover .brand__mark{ transform:rotate(-12deg) scale(1.05); }
-.brand__word{
-  font-family:var(--display); font-weight:600; font-size:1.2rem;
-  letter-spacing:-.02em; color:var(--green-deep);
-}
 .nav__links{ display:none; gap:1.9rem; }
 .nav__links a{
   position:relative; font-size:.925rem; color:var(--ink-soft);
@@ -157,6 +147,45 @@ fieldset{ margin:0; padding:0; border:0; }
   padding:.85rem 0; border-bottom:1px solid var(--line);
   font-family:var(--display); font-size:1.4rem; font-weight:500; letter-spacing:-.02em;
 }
+
+/* ============================================================
+   LOCKUP  —  el logo aporta la R y el texto completa "evellon"
+   El tamaño se controla con --mark; el texto se deriva de él para
+   que la proporción sea la misma que en el packaging.
+   ============================================================ */
+.lockup{ display:inline-flex; align-items:center; }
+.lockup__mark{
+  width:var(--mark); height:var(--mark); flex:none;
+  mix-blend-mode:multiply;                 /* funde el fondo crudo del JPEG */
+}
+.lockup__word{
+  font-family:var(--display); font-weight:600;
+  /* proporción emblema/texto tomada del packaging */
+  font-size:calc(var(--mark) / 2.5);
+  letter-spacing:.01em; line-height:1; text-transform:uppercase;
+  color:var(--green-deep);
+  /* el JPEG del logo tiene 9,7% de fondo vacío a la derecha: se descuenta
+     para que la R del emblema quede pegada a la E */
+  margin-left:calc(var(--mark) * -0.085);
+}
+
+.brand{ transition:opacity .3s var(--ease); }
+.brand:hover{ opacity:.75; }
+
+/* El ancho total del lockup es ~3,1 veces --mark (emblema + "EVELLON").
+   Se dimensiona contra el ancho real de su columna, no del viewport, para
+   que nunca se salga de pantalla. */
+.lockup--hero{
+  --mark:min(300px, 34cqw);
+  justify-content:center; width:100%;
+}
+.lockup--hero .lockup__word{ letter-spacing:-.005em; }
+
+/* en el pie el fondo es oscuro: el emblema va como chapa circular crudo */
+.lockup--footer .lockup__mark{
+  mix-blend-mode:normal; border-radius:50%;
+}
+.lockup--footer .lockup__word{ color:var(--cream); }
 
 /* ============================================================
    BOTONES
@@ -211,11 +240,6 @@ fieldset{ margin:0; padding:0; border:0; }
 }
 
 .split{ display:grid; gap:clamp(1.75rem,4vw,3.5rem); }
-.footnote{
-  margin-top:1.5rem; font-size:.85rem; font-style:italic;
-  color:var(--ink-faint); max-width:60ch;
-}
-.footnote--lg{ margin-top:clamp(2.5rem,5vw,4rem); font-size:.95rem; max-width:70ch; }
 
 /* ============================================================
    SECCIONES
@@ -247,6 +271,9 @@ fieldset{ margin:0; padding:0; border:0; }
 @keyframes sway{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-14px);} }
 
 .hero__grid{ position:relative; display:grid; gap:clamp(2.5rem,6vw,4rem); align-items:center; }
+/* sin min-width:0 la columna se estira hasta el min-content del lockup */
+.hero__grid > *{ min-width:0; }
+.hero__visual{ container-type:inline-size; }
 .hero__title{
   font-family:var(--display); font-weight:500;
   font-size:clamp(2.5rem,1.5rem + 4.6vw,4.9rem);
@@ -258,57 +285,6 @@ fieldset{ margin:0; padding:0; border:0; }
   color:var(--ink-soft); max-width:46ch; letter-spacing:-.015em;
 }
 .hero__actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:clamp(1.75rem,3.5vw,2.5rem); }
-
-/* disco lana/suelo */
-.hero__visual{ position:relative; }
-.disc{ position:relative; max-width:min(90vw,540px); margin-inline:auto; }
-.disc__svg{ width:100%; height:auto; overflow:visible; }
-.disc__ring{
-  fill:none; stroke:var(--wool-deep); stroke-width:1; stroke-dasharray:2 9;
-  opacity:.7; transform-origin:310px 310px; animation:spin 90s linear infinite;
-}
-.disc__orbit{ transform-origin:310px 310px; animation:spin 60s linear infinite reverse; }
-/* las animaciones en bucle del hero se pausan cuando el hero deja de verse */
-.hero.is-off .disc__ring, .hero.is-off .disc__orbit,
-.hero.is-off .pellets span, .hero.is-off .fiberfield path{ animation-play-state:paused; }
-@keyframes spin{ to{ transform:rotate(360deg); } }
-.disc__fibers path{
-  fill:none; stroke:#FBF6F0; stroke-width:1.4; opacity:.6;
-  stroke-dasharray:var(--len); stroke-dashoffset:var(--len);
-  animation:draw 2.4s var(--ease) forwards; animation-delay:var(--d);
-}
-.disc__roots path, .disc__sprout path{
-  stroke-dasharray:260; stroke-dashoffset:260;
-  animation:draw 1.8s var(--ease) forwards .9s;
-}
-.disc__sprout path{ animation-delay:1.6s; }
-
-.pellets{ position:absolute; inset:0; pointer-events:none; }
-.pellets span{
-  position:absolute; width:14px; height:34px; border-radius:20px;
-  background:linear-gradient(160deg,var(--wool-soft),var(--wool-deep));
-  box-shadow:0 10px 24px -14px rgba(28,30,24,.6);
-  animation:float 9s ease-in-out infinite;
-}
-.pellets span:nth-child(1){ top:6%;  left:8%;  transform:rotate(-18deg); animation-delay:0s; }
-.pellets span:nth-child(2){ top:24%; right:2%; transform:rotate(26deg);  animation-delay:1.2s; }
-.pellets span:nth-child(3){ bottom:14%; left:-2%; transform:rotate(12deg); animation-delay:2.4s; }
-.pellets span:nth-child(4){ bottom:2%; right:18%; transform:rotate(-32deg); animation-delay:3.1s; }
-.pellets span:nth-child(5){ top:48%; left:-5%; transform:rotate(44deg); animation-delay:4.3s; height:26px; }
-@keyframes float{ 0%,100%{ translate:0 0; } 50%{ translate:0 -16px; } }
-
-.hero__strip{
-  position:relative; margin-top:clamp(2.5rem,5vw,3.75rem);
-  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  background:rgba(234,220,197,.35);
-}
-.hero__strip-inner{ padding-block:clamp(1.25rem,3vw,1.9rem); }
-.hero__strip p{
-  font-family:var(--display); font-size:clamp(1rem,.9rem + .55vw,1.4rem);
-  letter-spacing:-.025em; line-height:1.35; color:var(--ink-soft); text-wrap:balance;
-}
-.hero__strip i{ color:var(--green); font-style:normal; padding-inline:.15em; }
-.hero__strip strong{ color:var(--ink); font-weight:600; }
 
 /* ============================================================
    CITAS / FRASES
@@ -348,8 +324,7 @@ fieldset{ margin:0; padding:0; border:0; }
   letter-spacing:-.03em; color:var(--green-deep); text-wrap:balance;
 }
 .sum i{ color:var(--wool-deep); font-style:normal; }
-.section--paper .footnote{ margin-inline:auto; text-align:center; }
-
+.section--paper 
 /* ============================================================
    TRANSMUTE (residuo → ciencia → producto)
    ============================================================ */
@@ -408,23 +383,18 @@ fieldset{ margin:0; padding:0; border:0; }
 .photo figcaption{
   margin-top:.9rem; font-size:.8rem; color:var(--ink-faint);
 }
-.photo__credit{
-  display:block; margin-top:.25rem;
-  font-family:var(--mono); font-size:.62rem; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--wool-deep);
-}
 /* si todavía no hay archivo, se muestra un marcador en vez de una imagen rota */
 .photo.is-empty img{ display:none; }
 .photo.is-empty figcaption{ display:none; }
 .photo.is-empty::before{
-  content:'Falta la foto'; display:grid; place-content:center; text-align:center;
+  content:'Foto del pellet'; display:grid; place-content:center; text-align:center;
   aspect-ratio:4/5; border:1px dashed var(--wool-deep); border-radius:var(--radius-lg);
   background:rgba(223,202,171,.14);
   font-family:var(--mono); font-size:.72rem; letter-spacing:.14em;
   text-transform:uppercase; color:var(--ink-faint);
 }
 .photo.is-empty::after{
-  content:'Guardala como assets/img/producto.jpg';
+  content:'Guardala como assets/img/producto.jpg (recorte 4:5)';
   display:block; margin-top:.9rem; text-align:center;
   font-size:.78rem; color:var(--ink-faint);
 }
@@ -475,18 +445,6 @@ fieldset{ margin:0; padding:0; border:0; }
   transition:color .3s var(--ease), border-color .3s var(--ease);
 }
 .paper__link:hover{ color:var(--cream); border-color:var(--wool); }
-
-/* ============================================================
-   PILARES DE IMPACTO
-   ============================================================ */
-.pillars{ display:grid; gap:0; margin-top:clamp(2rem,4vw,3rem); border-top:1px solid var(--line); }
-.pillar{ padding:clamp(1.35rem,3vw,1.9rem) 0; border-bottom:1px solid var(--line); }
-.pillar__icon{ width:38px; color:var(--green); margin-bottom:1.1rem; }
-.pillar h3{
-  font-family:var(--display); font-weight:500; font-size:1.4rem;
-  letter-spacing:-.03em; margin-bottom:.5rem;
-}
-.pillar p{ color:var(--ink-soft); font-size:.95rem; max-width:34ch; }
 
 /* ============================================================
    CTA
@@ -584,7 +542,6 @@ fieldset{ margin:0; padding:0; border:0; }
   .cards{ grid-template-columns:repeat(2,1fr); gap:1.25rem; }
   .form{ grid-template-columns:repeat(2,1fr); }
   .field--full{ grid-column:1 / -1; }
-  .pillars{ grid-template-columns:repeat(2,1fr); column-gap:2.5rem; }
 }
 
 @media (min-width:900px){
@@ -611,7 +568,6 @@ fieldset{ margin:0; padding:0; border:0; }
 
 @media (min-width:1100px){
   .cards{ grid-template-columns:repeat(4,1fr); }
-  .pillars{ grid-template-columns:repeat(4,1fr); column-gap:2rem; }
 }
 
 /* en pantallas chicas las etiquetas del ciclo compiten con el anillo */
@@ -630,7 +586,6 @@ fieldset{ margin:0; padding:0; border:0; }
   }
   .reveal{ opacity:1; transform:none; }
   .fiberfield path{ stroke-dashoffset:0 !important; }
-  .disc__fibers path, .disc__roots path, .disc__sprout path{ stroke-dashoffset:0 !important; }
   .transmute__step, .paper{ opacity:1 !important; transform:none !important; }
   .transmute__art .mol circle{ opacity:1 !important; }
 }

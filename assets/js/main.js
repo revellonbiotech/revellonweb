@@ -1,5 +1,5 @@
 /* ============================================================
-   REVELLÓN — comportamiento de la landing
+   REVELLON — comportamiento de la landing
    Sin dependencias externas.
    ============================================================ */
 (function () {
@@ -51,8 +51,6 @@
     var vb = (svg.getAttribute('viewBox') || '0 0 1440 900').split(/\s+/);
     buildFibers(svg, parseFloat(vb[2]), parseFloat(vb[3]));
   });
-  var discFibers = $('.disc__fibers');
-  if (discFibers) buildFibers(discFibers, 620, 620);
 
   /* ----------------------------------------------------------
      2. Nav: estado al hacer scroll, barra de progreso y link activo
@@ -103,9 +101,8 @@
     });
   }
 
-  /* Las animaciones infinitas del hero (anillo, órbita, pellets) no tienen
-     por qué seguir corriendo cuando el hero ya no se ve: pausarlas libera
-     al compositor durante el resto del scroll. */
+  /* La animación de fibras del hero no tiene por qué seguir corriendo
+     cuando el hero ya no se ve. */
   var hero = $('.hero');
   if (hero && 'IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
@@ -333,7 +330,7 @@
 
     // Mensaje para el visitante; el detalle técnico va a la consola.
     setStatus('El formulario todavía no está habilitado. Escribinos por nuestras redes y te respondemos.', 'error');
-    console.warn('[Revellón] Formulario sin destino: definí formEndpoint o email en assets/js/config.js');
+    console.warn('[Revellon] Formulario sin destino: definí formEndpoint o email en assets/js/config.js');
   });
 
 })();

@@ -37,29 +37,28 @@ El resto de los datos se configura en el mismo archivo:
 Cada campo que quede vacío simplemente no se muestra. Si no se configura ni `formEndpoint`
 ni `email`, el formulario avisa al visitante y deja el detalle técnico en la consola.
 
-## La foto de producto — reemplazar
+## Imagenes
 
-`assets/img/producto.jpg` es **provisoria**. Es una foto de Wikimedia Commons de
-Richard Bartz, licencia **CC BY-SA 2.5**, que obliga a mantener el crédito visible
-(hoy está debajo de la imagen, en `.photo__credit`).
+`assets/img/producto.jpg` es la foto del packaging (recorte 4:5 de `ImagenPackaging.jpeg`,
+1100x1375, 196 KB). Para cambiarla, guarda la nueva con ese mismo nombre y proporcion.
 
-Cuando tengas una foto propia:
+`assets/img/logo.jpeg` se usa en tres lugares mediante el componente `.lockup`: el emblema
+aporta la R y el texto completa "EVELLON". El tamano se controla con una sola variable,
+`--mark`, y el texto se deriva de ella. Si queres retocar el encaje, los dos numeros estan
+en `.lockup__word`: `font-size` (proporcion del texto) y `margin-left` (cuanto se acerca a
+la R). El logo original tiene 9,7 % de fondo vacio a la derecha, que es lo que descuenta
+ese margen negativo.
 
-1. Guardala como `assets/img/producto.jpg`, recortada en **4:5** (ej. 1100×1375 px).
-2. Borrá el `<span class="photo__credit">` del `index.html`: ya no hace falta atribuir.
+## Criterio de contenido
 
-Si el archivo no existe, la página muestra un marcador discreto en lugar de una
-imagen rota, así que nunca se ve como un error.
+La web **no publica porcentajes de la formulación ni detalles del proceso productivo**.
+Las cuatro funciones del producto se afirman sin reservas, pero sin cifras agronómicas.
 
-## Contenido sensible
-
-La sección de producto **no publica porcentajes de la formulación ni detalles del proceso
-productivo**, porque la estrategia de propiedad intelectual está en evaluación. Si más
-adelante se decide publicarlos, el lugar es la sección `05 · Primer producto`.
-
-Las propiedades agronómicas se redactaron en potencial ("buscamos", "estamos evaluando",
-"en proceso de validación") y sólo se afirman los hechos ya concretados: lote piloto de
-250 kg, ensayos en marcha, formulación propia.
+La sección de I+D cita **cuatro estudios internacionales reales y verificados**, cada uno
+con enlace al paper. Están encabezados por una aclaración deliberada — *"Los estudios que
+siguen no son resultados de Revellon"* — que evita que se lean como validación de esta
+formulación en particular. Si se agregan estudios, mantener ese criterio y no citar nada
+sin verificar la fuente.
 
 ## Diseño
 

@@ -1,0 +1,11 @@
+# Si publicás por GitHub, esto evita subir el documento interno a un repo público.
+Web.txt
+
+# Sistema / editor
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
+
+# Vercel
+.vercel/

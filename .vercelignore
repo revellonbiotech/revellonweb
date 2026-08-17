@@ -1,0 +1,13 @@
+# Archivos que NO deben publicarse.
+# Todo lo que quede acá seguiría siendo accesible en tu-sitio.vercel.app/<archivo>.
+
+# Documento interno de la web: menciona la estrategia de patentamiento
+# y la decisión de no publicar porcentajes de la formulación.
+Web.txt
+
+# Documentación interna del proyecto
+README.md
+
+# Originales (las copias que usa el sitio viven en assets/img/)
+Logo.jpeg
+ImagenPackaging.jpeg
