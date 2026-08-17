@@ -149,43 +149,19 @@ fieldset{ margin:0; padding:0; border:0; }
 }
 
 /* ============================================================
-   LOCKUP  —  el logo aporta la R y el texto completa "evellon"
-   El tamaño se controla con --mark; el texto se deriva de él para
-   que la proporción sea la misma que en el packaging.
+   LOGO  —  PNG con emblema + "EVELLON" ya compuestos.
+   Proporción del archivo: ancho = alto x 3,141.
    ============================================================ */
-.lockup{ display:inline-flex; align-items:center; }
-.lockup__mark{
-  width:var(--mark); height:var(--mark); flex:none;
-  mix-blend-mode:multiply;                 /* funde el fondo crudo del JPEG */
-}
-.lockup__word{
-  font-family:var(--display); font-weight:600;
-  /* proporción emblema/texto tomada del packaging */
-  font-size:calc(var(--mark) / 2.5);
-  letter-spacing:.01em; line-height:1; text-transform:uppercase;
-  color:var(--green-deep);
-  /* el JPEG del logo tiene 9,7% de fondo vacío a la derecha: se descuenta
-     para que la R del emblema quede pegada a la E */
-  margin-left:calc(var(--mark) * -0.085);
-}
+.logo{ height:auto; width:auto; }
+.logo--nav{ height:40px; }
+.logo--footer{ height:54px; }
+
+/* En el hero se ajusta al ancho de su columna, nunca al viewport,
+   para que no se recorte contra el overflow:hidden de la sección. */
+.logo--hero{ width:min(560px, 100cqw); }
 
 .brand{ transition:opacity .3s var(--ease); }
 .brand:hover{ opacity:.75; }
-
-/* El ancho total del lockup es ~3,1 veces --mark (emblema + "EVELLON").
-   Se dimensiona contra el ancho real de su columna, no del viewport, para
-   que nunca se salga de pantalla. */
-.lockup--hero{
-  --mark:min(300px, 34cqw);
-  justify-content:center; width:100%;
-}
-.lockup--hero .lockup__word{ letter-spacing:-.005em; }
-
-/* en el pie el fondo es oscuro: el emblema va como chapa circular crudo */
-.lockup--footer .lockup__mark{
-  mix-blend-mode:normal; border-radius:50%;
-}
-.lockup--footer .lockup__word{ color:var(--cream); }
 
 /* ============================================================
    BOTONES
@@ -510,10 +486,7 @@ fieldset{ margin:0; padding:0; border:0; }
    ============================================================ */
 .footer{ background:var(--green-night); color:var(--cream); padding-block:clamp(2.5rem,5vw,3.75rem); }
 .footer__inner{ display:grid; gap:2rem; }
-.footer__word{
-  font-family:var(--display); font-weight:600; font-size:clamp(1.9rem,1.4rem + 2.4vw,3.4rem);
-  letter-spacing:-.04em; line-height:1;
-}
+.footer__word{ line-height:0; }
 .footer__claim{ margin-top:.75rem; color:var(--wool); font-size:clamp(1rem,.95rem + .35vw,1.15rem); max-width:32ch; }
 .footer__links{ display:flex; flex-wrap:wrap; align-items:center; gap:.55rem; font-size:.92rem; }
 .footer__links a{ color:rgba(251,246,240,.68); transition:color .25s var(--ease); }

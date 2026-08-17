@@ -42,12 +42,10 @@ ni `email`, el formulario avisa al visitante y deja el detalle técnico en la co
 `assets/img/producto.jpg` es la foto del packaging (recorte 4:5 de `ImagenPackaging.jpeg`,
 1100x1375, 196 KB). Para cambiarla, guarda la nueva con ese mismo nombre y proporcion.
 
-`assets/img/logo.jpeg` se usa en tres lugares mediante el componente `.lockup`: el emblema
-aporta la R y el texto completa "EVELLON". El tamano se controla con una sola variable,
-`--mark`, y el texto se deriva de ella. Si queres retocar el encaje, los dos numeros estan
-en `.lockup__word`: `font-size` (proporcion del texto) y `margin-left` (cuanto se acerca a
-la R). El logo original tiene 9,7 % de fondo vacio a la derecha, que es lo que descuenta
-ese margen negativo.
+`assets/img/logo-lockup.png` es el logotipo completo (emblema + EVELLON) con fondo
+transparente, recortado y reescalado desde `LogoconLetras.png`. Se usa en nav, hero y pie
+con la clase `.logo`; la proporcion es ancho = alto x 3,141, asi que basta con fijar una
+sola dimension. `assets/img/logo.jpeg` (solo el emblema) queda para el favicon y el og:image.
 
 ## Criterio de contenido
 
