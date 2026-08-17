@@ -278,7 +278,7 @@ fieldset{ margin:0; padding:0; border:0; }
   border-left:2px solid var(--green);
   font-family:var(--display); font-weight:400;
   font-size:clamp(1.2rem,1rem + 1.1vw,1.9rem);
-  line-height:1.24; letter-spacing:-.03em; max-width:32ch; color:var(--ink);
+  line-height:1.24; letter-spacing:-.03em; max-width:46ch; color:var(--ink);
 }
 
 .thesis{
@@ -302,40 +302,18 @@ fieldset{ margin:0; padding:0; border:0; }
 .sum i{ color:var(--wool-deep); font-style:normal; }
 .section--paper 
 /* ============================================================
-   TRANSMUTE (residuo → ciencia → producto)
+   DIMENSIONES DE LA FERTILIDAD
    ============================================================ */
-.transmute{
-  margin-top:clamp(2rem,4.5vw,3.25rem);
-  display:grid; gap:1rem; align-items:center; justify-items:center;
+.dims{
+  display:grid; gap:0; margin-top:clamp(2rem,4vw,3rem);
+  border-top:1px solid var(--line);
 }
-.transmute__step{
-  text-align:center; opacity:0; transform:translateY(18px);
-  transition:opacity .7s var(--ease), transform .7s var(--ease);
+.dim{ padding:clamp(1.2rem,2.5vw,1.6rem) 0; border-bottom:1px solid var(--line); }
+.dim h3{
+  font-family:var(--display); font-weight:500; font-size:1.25rem;
+  letter-spacing:-.03em; margin-bottom:.35rem;
 }
-.transmute.is-on .transmute__step{ opacity:1; transform:none; }
-.transmute.is-on .transmute__step[data-step="2"]{ transition-delay:.25s; }
-.transmute.is-on .transmute__step[data-step="3"]{ transition-delay:.5s; }
-.transmute__art{
-  width:clamp(88px,17vw,124px); margin-inline:auto; color:var(--wool-deep);
-  transition:color .6s var(--ease);
-}
-.transmute__step[data-step="2"] .transmute__art{ color:var(--green); }
-.transmute__step[data-step="3"] .transmute__art{ color:var(--green-deep); }
-.transmute__art svg{ width:100%; height:auto; }
-.transmute__art .mol circle{ opacity:0; animation:none; }
-.transmute.is-on .transmute__art .mol circle{ animation:popin .5s var(--ease) forwards; }
-.transmute.is-on .transmute__art .mol circle:nth-child(2){ animation-delay:.75s; }
-.transmute.is-on .transmute__art .mol circle:nth-child(3){ animation-delay:.9s; }
-@keyframes popin{ from{ opacity:0; transform:scale(.4);} to{ opacity:1; transform:scale(1);} }
-.transmute__label{
-  margin-top:.9rem; font-family:var(--display); font-weight:600;
-  font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
-}
-.transmute__note{ font-size:.85rem; color:var(--ink-faint); }
-.transmute__arrow{ width:72px; color:var(--green); opacity:.6; rotate:90deg; }
-.transmute__arrow svg{ width:100%; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
-.transmute__arrow path{ stroke-dasharray:130; stroke-dashoffset:130; }
-.transmute.is-on .transmute__arrow path{ animation:draw 1s var(--ease) forwards .35s; }
+.dim p{ color:var(--ink-soft); font-size:.95rem; max-width:32ch; }
 
 /* ============================================================
    PRODUCTO
@@ -513,6 +491,7 @@ fieldset{ margin:0; padding:0; border:0; }
    ============================================================ */
 @media (min-width:640px){
   .cards{ grid-template-columns:repeat(2,1fr); gap:1.25rem; }
+  .dims{ grid-template-columns:repeat(2,1fr); column-gap:2.5rem; }
   .form{ grid-template-columns:repeat(2,1fr); }
   .field--full{ grid-column:1 / -1; }
 }
@@ -527,8 +506,6 @@ fieldset{ margin:0; padding:0; border:0; }
   .split{ grid-template-columns:1fr 1fr; align-items:start; }
   .h2--center{ margin-inline:auto; }
 
-  .transmute{ grid-template-columns:1fr auto 1fr auto 1fr; }
-  .transmute__arrow{ rotate:0deg; }
 
   .product{ grid-template-columns:1fr 1fr; }
 
@@ -541,6 +518,7 @@ fieldset{ margin:0; padding:0; border:0; }
 
 @media (min-width:1100px){
   .cards{ grid-template-columns:repeat(4,1fr); }
+  .dims{ grid-template-columns:repeat(4,1fr); column-gap:2rem; }
 }
 
 /* en pantallas chicas las etiquetas del ciclo compiten con el anillo */
@@ -559,6 +537,5 @@ fieldset{ margin:0; padding:0; border:0; }
   }
   .reveal{ opacity:1; transform:none; }
   .fiberfield path{ stroke-dashoffset:0 !important; }
-  .transmute__step, .paper{ opacity:1 !important; transform:none !important; }
-  .transmute__art .mol circle{ opacity:1 !important; }
+  .paper{ opacity:1 !important; transform:none !important; }
 }
