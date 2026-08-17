@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revellón — Biotecnología para transformar residuos en recursos</title>
+<meta name="description" content="Revellón desarrolla biotecnología para convertir residuos agroindustriales en insumos de alto valor para una agricultura más sustentable y circular. Transformamos lana de oveja de descarte en un biofertilizante orgánico pelletizado.">
+<meta name="theme-color" content="#FBF6F0">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Revellón — Transformamos residuos en recursos para la agricultura">
+<meta property="og:description" content="Biotecnología para convertir residuos agroindustriales en insumos de alto valor.">
+<meta property="og:image" content="assets/img/logo.jpeg">
+
+<link rel="icon" href="assets/img/logo.jpeg">
+<link rel="apple-touch-icon" href="assets/img/logo.jpeg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css?v=5">
+</head>
+
+<body id="top">
+
+<a class="skip-link" href="#hero-title">Saltar al contenido</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="#top" aria-label="Revellón — inicio">
+      <img class="brand__mark" src="assets/img/logo.jpeg" alt="" width="44" height="44">
+      <span class="brand__word">Revellón</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a href="#vision">Visión</a>
+      <a href="#producto">Producto</a>
+      <a href="#id">I+D</a>
+      <a href="#impacto">Impacto</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <a class="btn btn--primary nav__cta" href="#contacto">Quiero probar Revellón</a>
+
+    <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__progress" aria-hidden="true"><i id="progress"></i></div>
+</header>
+
+<div class="drawer" id="drawer" hidden>
+  <nav class="drawer__links" aria-label="Navegación móvil">
+    <a href="#vision">Visión</a>
+    <a href="#producto">Producto</a>
+    <a href="#id">I+D</a>
+    <a href="#impacto">Impacto</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <a class="btn btn--primary btn--block" href="#contacto">Quiero probar Revellón</a>
+</div>
+
+<main>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="hero__field" aria-hidden="true">
+    <svg class="fiberfield" data-fibers="26" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"></svg>
+  </div>
+
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <h1 class="hero__title reveal" id="hero-title">
+        Transformamos <span class="ink-accent">residuos</span> en recursos para la agricultura.
+      </h1>
+
+      <p class="hero__lead reveal">
+        Desarrollamos biotecnología para convertir residuos agroindustriales en insumos
+        de alto valor para una agricultura más sustentable y circular.
+      </p>
+
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary btn--lg" href="#vision">Conocer Revellón</a>
+        <a class="btn btn--ghost btn--lg" href="#contacto">Quiero probar el producto</a>
+      </div>
+    </div>
+
+    <div class="hero__visual reveal" aria-hidden="true">
+      <div class="disc">
+        <svg class="disc__svg" viewBox="0 0 620 620">
+          <defs>
+            <clipPath id="discClip"><circle cx="310" cy="310" r="270"/></clipPath>
+            <radialGradient id="discFill" cx="38%" cy="30%" r="82%">
+              <stop offset="0%" stop-color="#F3E6D0"/>
+              <stop offset="58%" stop-color="#DFCAAB"/>
+              <stop offset="100%" stop-color="#C9B08C"/>
+            </radialGradient>
+            <linearGradient id="soilFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#748245"/>
+              <stop offset="100%" stop-color="#3A4526"/>
+            </linearGradient>
+          </defs>
+
+          <circle class="disc__ring" cx="310" cy="310" r="292"/>
+          <circle cx="310" cy="310" r="270" fill="url(#discFill)"/>
+
+          <g clip-path="url(#discClip)">
+            <g class="disc__fibers" data-fibers="16" data-w="620" data-h="620"></g>
+            <path class="disc__soil" d="M-20 430 C 120 388, 240 452, 360 430 C 470 410, 560 452, 660 424 L660 660 L-20 660 Z" fill="url(#soilFill)"/>
+            <g class="disc__roots" stroke="#EFE3CC" fill="none" stroke-width="2" stroke-linecap="round">
+              <path d="M300 430 C 296 470, 288 496, 270 528"/>
+              <path d="M300 452 C 316 470, 330 480, 352 488"/>
+              <path d="M300 478 C 282 492, 272 504, 262 524"/>
+              <path d="M300 500 C 318 512, 328 526, 336 548"/>
+              <path d="M300 430 C 304 476, 302 512, 300 566"/>
+            </g>
+            <g class="disc__sprout" stroke="#EFE3CC" fill="none" stroke-width="2.4" stroke-linecap="round">
+              <path d="M300 430 L300 372"/>
+              <path d="M300 396 C 276 392, 262 378, 256 358 C 282 356, 296 370, 300 396Z" fill="#EFE3CC" stroke="none" opacity=".92"/>
+              <path d="M300 384 C 324 380, 338 366, 344 346 C 318 344, 304 358, 300 384Z" fill="#EFE3CC" stroke="none" opacity=".92"/>
+            </g>
+          </g>
+
+          <g class="disc__orbit">
+            <circle cx="310" cy="18" r="7" fill="#748245"/>
+            <circle cx="310" cy="602" r="5" fill="#B5613A"/>
+            <circle cx="18" cy="310" r="4" fill="#DFCAAB"/>
+          </g>
+        </svg>
+
+        <div class="pellets">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__strip">
+    <div class="container hero__strip-inner">
+      <p>
+        Nutrición prolongada <i>+</i> materia orgánica <i>+</i> retención hídrica <i>+</i> bioestimulación.
+        <strong>En una sola aplicación.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 02 · EL MUNDO QUE QUEREMOS ==================== -->
+<section class="section section--cream" id="vision">
+  <div class="container">
+    <p class="eyebrow reveal">El mundo que queremos</p>
+
+    <div class="split">
+      <h2 class="h2 reveal">Producir más no alcanza.<br>Tenemos que aprender a producir&nbsp;mejor.</h2>
+
+      <div class="prose reveal">
+        <p>Queremos un mundo donde la humanidad pueda desarrollarse utilizando de manera cada vez más inteligente los recursos que tiene disponibles.</p>
+        <p>Un mundo donde nuestra capacidad científica y tecnológica no sirva solamente para extraer y producir más, sino también para recuperar, transformar y volver a utilizar.</p>
+        <p>Creemos en una economía circular donde los materiales permanezcan dentro de ciclos productivos el mayor tiempo posible, donde aquello que hoy consideramos un descarte sea el comienzo de una nueva cadena de valor, y donde podamos producir los alimentos que necesitamos sin hacerlo a costa del ambiente.</p>
+      </div>
+    </div>
+
+    <figure class="statement reveal">
+      <div class="statement__rule" aria-hidden="true"></div>
+      <blockquote>
+        La sustentabilidad no debería significar producir menos.<br>
+        <span class="ink-accent">Debería significar producir mejor.</span>
+      </blockquote>
+    </figure>
+  </div>
+</section>
+
+<!-- ==================== 03 · EL PROBLEMA ==================== -->
+<section class="section section--paper" id="problema">
+  <div class="container">
+    <p class="eyebrow reveal">El problema</p>
+
+    <div class="split">
+      <h2 class="h2 reveal">Hay recursos valiosos que todavía tratamos como residuos.</h2>
+
+      <div class="prose reveal">
+        <p>Distintas cadenas productivas generan enormes cantidades de biomasa que pierde valor económico a pesar de conservar propiedades químicas y biológicas aprovechables.</p>
+        <p>La lana de oveja de descarte es uno de esos materiales: parte de la lana producida no encuentra un destino económicamente atractivo dentro de la industria textil.</p>
+        <p>Pero sigue siendo un material rico en <strong>queratina, nitrógeno, azufre, carbono</strong> y otros componentes potencialmente valiosos para la agricultura.</p>
+      </div>
+    </div>
+
+    <p class="pull reveal">Que un material haya perdido valor comercial no significa que haya perdido valor biológico.</p>
+
+    <!-- Animación: Residuo → Ciencia → Producto -->
+    <div class="transmute reveal" data-anim="transmute">
+      <div class="transmute__step" data-step="1">
+        <div class="transmute__art">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <path d="M28 78c-6-20 4-40 22-46s36 4 40 22-6 36-24 42-32-2-38-18Z"/>
+              <path d="M40 74c-4-14 3-28 15-32M52 84c-6-16 1-32 14-38M64 88c-6-16 0-32 13-38M76 88c-5-14-1-28 10-34"/>
+            </g>
+          </svg>
+        </div>
+        <p class="transmute__label">Lana de descarte</p>
+        <p class="transmute__note">Biomasa sin destino textil</p>
+      </div>
+
+      <div class="transmute__arrow" aria-hidden="true">
+        <svg viewBox="0 0 120 24"><path d="M2 12h108" /><path d="M104 5l14 7-14 7"/></svg>
+      </div>
+
+      <div class="transmute__step" data-step="2">
+        <div class="transmute__art">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M50 20v28L28 88a10 10 0 0 0 9 15h46a10 10 0 0 0 9-15L70 48V20"/>
+              <path d="M44 20h32"/>
+              <path d="M36 74h48"/>
+            </g>
+            <g class="mol" fill="currentColor">
+              <circle cx="50" cy="86" r="4.5"/><circle cx="68" cy="92" r="3.5"/><circle cx="58" cy="70" r="3"/>
+            </g>
+          </svg>
+        </div>
+        <p class="transmute__label">Ciencia + tecnología</p>
+        <p class="transmute__note">Caracterización y formulación</p>
+      </div>
+
+      <div class="transmute__arrow" aria-hidden="true">
+        <svg viewBox="0 0 120 24"><path d="M2 12h108"/><path d="M104 5l14 7-14 7"/></svg>
+      </div>
+
+      <div class="transmute__step" data-step="3">
+        <div class="transmute__art">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <rect x="30" y="26" width="17" height="44" rx="8.5" transform="rotate(-18 38.5 48)"/>
+              <rect x="68" y="18" width="17" height="50" rx="8.5" transform="rotate(14 76.5 43)"/>
+              <rect x="50" y="62" width="17" height="40" rx="8.5" transform="rotate(-8 58.5 82)"/>
+              <rect x="82" y="66" width="17" height="34" rx="8.5" transform="rotate(30 90.5 83)"/>
+            </g>
+          </svg>
+        </div>
+        <p class="transmute__label">Nuevo insumo agrícola</p>
+        <p class="transmute__note">Biofertilizante pelletizado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 05 · PRIMER PRODUCTO ==================== -->
+<section class="section section--cream" id="producto">
+  <div class="container">
+    <p class="eyebrow reveal">El producto</p>
+
+    <div class="product">
+      <div class="product__copy">
+        <h2 class="h2 reveal">De vellón descartado a fertilizante orgánico.</h2>
+        <p class="product__name reveal">Revellón <span>Pellet</span></p>
+
+        <div class="prose reveal">
+          <p>Nuestro producto en desarrollo es un fertilizante orgánico pelletizado cuya matriz principal es lana de oveja de descarte, complementada con <em>Macrocystis</em> y harina de hueso.</p>
+          <p>La formulación busca combinar diferentes propiedades agronómicas dentro de un único insumo.</p>
+        </div>
+
+      </div>
+
+      <div class="product__visual reveal">
+        <figure class="photo" id="foto-producto">
+          <img src="assets/img/producto.jpg" width="1100" height="1375" loading="lazy"
+               alt="Oveja de vellón blanco en pastura.">
+          <figcaption>
+            La lana que la industria textil descarta es nuestra materia prima.
+            <span class="photo__credit">Foto: Richard Bartz · CC&nbsp;BY-SA&nbsp;2.5</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 06 · UNA APLICACIÓN, MÚLTIPLES FUNCIONES ==================== -->
+<section class="section section--paper">
+  <div class="container">
+    <p class="eyebrow reveal">Una aplicación, múltiples funciones</p>
+    <h2 class="h2 h2--center reveal">Cuatro funciones dentro de un mismo insumo.</h2>
+
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M32 56V26"/>
+            <path d="M32 34c-10 0-16-6-17-16 10-1 16 5 17 16Z"/>
+            <path d="M32 42c10 0 16-6 17-16-10-1-16 5-17 16Z"/>
+            <path d="M14 56h36"/>
+          </svg>
+        </div>
+        <h3>Nutrición prolongada</h3>
+        <p>La lana contiene una elevada concentración de nitrógeno orgánico dentro de su estructura de queratina.</p>
+        <p>Estamos estudiando su comportamiento como fuente de nitrógeno de liberación progresiva para los cultivos.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M32 8c9 12 16 20 16 29a16 16 0 0 1-32 0c0-9 7-17 16-29Z"/>
+            <path d="M24 38c0 6 4 10 9 11"/>
+          </svg>
+        </div>
+        <h3>Retención hídrica</h3>
+        <p>La estructura de la lana posee capacidad de absorción de agua.</p>
+        <p>Estamos evaluando cuánto puede contribuir Revellón a mejorar la disponibilidad de agua en el suelo y reducir la frecuencia de riego.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M32 56c-6-14-2-32 8-42"/>
+            <path d="M32 44c-8-4-16-2-22 4M34 34c8-6 10-14 8-22M36 46c8-2 14 2 18 8"/>
+            <circle cx="32" cy="56" r="2.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3>Bioestimulación</h3>
+        <p>Incorporamos <em>Macrocystis</em>, una macroalga utilizada en agricultura por su contenido de minerales y compuestos bioactivos.</p>
+        <p>Estamos investigando su efecto dentro de nuestra formulación.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M8 26h48M8 38h48M8 50h48"/>
+            <path d="M20 26c0-8 5-14 12-16M44 26c0-6-3-11-8-14"/>
+            <circle cx="18" cy="44" r="2" fill="currentColor" stroke="none"/>
+            <circle cx="40" cy="32" r="2" fill="currentColor" stroke="none"/>
+            <circle cx="50" cy="44" r="2" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3>Materia orgánica</h3>
+        <p>Revellón incorpora biomasa al suelo además de nutrientes.</p>
+        <p>Buscamos desarrollar un fertilizante que no solo alimente a la planta, sino que también contribuya al sistema suelo.</p>
+      </article>
+    </div>
+
+    <p class="sum reveal">Nutrición <i>+</i> suelo <i>+</i> agua <i>+</i> bioestimulación.</p>
+    <p class="footnote reveal">Las propiedades agronómicas específicas de la formulación Revellón se encuentran actualmente en proceso de validación experimental.</p>
+  </div>
+</section>
+
+<!-- ==================== I+D ==================== -->
+<section class="section section--dark" id="id">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="container">
+    <p class="eyebrow eyebrow--light reveal">Investigación y desarrollo</p>
+
+    <div class="split">
+      <h2 class="h2 reveal">Lo que ya sabe la ciencia sobre la lana.</h2>
+      <div class="prose prose--light reveal">
+        <p>Revellón no parte de cero. El uso de lana de descarte como insumo agrícola viene siendo estudiado por grupos de investigación de distintos países, y esa literatura es el punto de partida de nuestro trabajo.</p>
+        <p><strong>Los estudios que siguen no son resultados de Revellón.</strong> Son el estado del arte internacional sobre el que estamos construyendo nuestra propia validación experimental.</p>
+      </div>
+    </div>
+
+    <ul class="papers">
+      <li class="paper reveal">
+        <p class="paper__meta mono">Agronomy · 2022 · University of Vermont</p>
+        <h3 class="paper__title">Pellets de lana como alternativa a la fertilización comercial en horticultura orgánica</h3>
+        <p class="paper__finding">Compararon pellets de lana contra un fertilizante comercial en espinaca y tomate. A igual aporte de nitrógeno, no encontraron diferencias de rendimiento entre ambos.</p>
+        <a class="paper__link" href="https://www.mdpi.com/2073-4395/12/5/1210" target="_blank" rel="noopener">
+          Bradshaw &amp; Hagen · <i>Agronomy</i> 12(5), 1210
+        </a>
+      </li>
+
+      <li class="paper reveal">
+        <p class="paper__meta mono">Agronomy · 2025 · Revisión</p>
+        <h3 class="paper__title">La lana de descarte como recurso circular en agricultura</h3>
+        <p class="paper__finding">Una revisión de aplicaciones de lana residual en agroecosistemas. Señala su contenido de nitrógeno, carbono y azufre, y su capacidad de absorber agua durante lluvias intensas y liberarla gradualmente en períodos de déficit hídrico.</p>
+        <a class="paper__link" href="https://www.mdpi.com/2073-4395/15/2/446" target="_blank" rel="noopener">
+          Camilli et&nbsp;al. · <i>Agronomy</i> 15(2), 446
+        </a>
+      </li>
+
+      <li class="paper reveal">
+        <p class="paper__meta mono">Biologia Futura · 2025</p>
+        <h3 class="paper__title">Aporte de nitrógeno de pellets de lana según la actividad biológica del suelo</h3>
+        <p class="paper__finding">Los pellets de lana aumentaron la actividad biológica del suelo y mejoraron la eficiencia en el uso del nitrógeno respecto del control.</p>
+        <a class="paper__link" href="https://link.springer.com/article/10.1007/s42977-025-00266-2" target="_blank" rel="noopener">
+          <i>Biologia Futura</i> · Springer
+        </a>
+      </li>
+
+      <li class="paper reveal">
+        <p class="paper__meta mono">J. of Soil Science and Plant Nutrition · 2019</p>
+        <h3 class="paper__title">Residuos de lana de la industria textil como fertilizante orgánico</h3>
+        <p class="paper__finding">Evaluaron dos residuos de lana provenientes de la industria textil como fertilizante orgánico en cultivos de girasol y maíz.</p>
+        <a class="paper__link" href="https://link.springer.com/article/10.1007/s42729-019-00079-y" target="_blank" rel="noopener">
+          <i>J. Soil Sci. Plant Nutr.</i> · Springer
+        </a>
+      </li>
+    </ul>
+
+    <p class="thesis thesis--sm reveal">Nuestro trabajo es llevar esa evidencia a una formulación concreta y validarla en condiciones productivas argentinas.</p>
+  </div>
+</section>
+
+<!-- ==================== 08 · IMPACTO ==================== -->
+<section class="section section--paper" id="impacto">
+  <div class="container">
+    <p class="eyebrow reveal">Impacto</p>
+
+    <div class="split">
+      <h2 class="h2 reveal">Producir en un clima que ya cambió.</h2>
+      <div class="prose reveal">
+        <p>Las proyecciones climáticas coinciden en una dirección: buena parte de las regiones agrícolas va a convivir con sequías más frecuentes y lluvias más concentradas.</p>
+        <p>Producir en ese escenario no depende solo de aportar nutrientes. Depende de suelos capaces de retener el agua cuando llega y de sostenerla cuando falta.</p>
+        <p>Por eso nos interesa la lana: es un material que absorbe agua y la libera de a poco, y que además devuelve materia orgánica al suelo. Queremos entender hasta dónde puede ayudar en campañas secas.</p>
+        <p><strong>Y hay algo estructural en el modelo: cuanto más producimos, más residuo recuperamos. Crecer también significa recuperar más recursos.</strong></p>
+      </div>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar reveal">
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M24 6l6 10H18l6-10Z"/><path d="M8 40l6-10 6 10H8Z"/><path d="M28 40l6-10 6 10h-12Z"/>
+            <path d="M16 20a12 12 0 0 0-6 10M32 20a12 12 0 0 1 6 10M18 40h12"/>
+          </svg>
+        </div>
+        <h3>Residuos</h3>
+        <p>Biomasa que vuelve a las cadenas productivas en lugar de perderse como descarte.</p>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M24 6c7 10 12 15 12 22a12 12 0 0 1-24 0c0-7 5-12 12-22Z"/><path d="M18 29c0 4 3 7 6 8"/>
+          </svg>
+        </div>
+        <h3>Sequía</h3>
+        <p>Buscamos que el suelo aproveche mejor cada lluvia y cada riego, y que las campañas secas pesen menos.</p>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M6 20h36M6 30h36M6 40h36"/><path d="M24 20V8M24 14c-5 0-8-3-9-8 5-1 8 3 9 8Z"/>
+          </svg>
+        </div>
+        <h3>Suelo</h3>
+        <p>Incorporar materia orgánica, que es lo que sostiene la capacidad del suelo de guardar agua y nutrientes.</p>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M6 42h36"/><path d="M14 42V24M14 30c-5-1-8-5-8-11 6 0 9 4 8 11ZM14 28c5-1 8-5 8-11-6 0-9 4-8 11Z"/>
+            <path d="M32 42V20M32 28c5-1 8-5 8-11-6 0-9 4-8 11Z"/>
+          </svg>
+        </div>
+        <h3>Agricultura</h3>
+        <p>Más herramientas para producir en un contexto climático más exigente, sin renunciar a productividad.</p>
+      </article>
+    </div>
+
+    <p class="footnote footnote--lg reveal">
+      A futuro buscamos medir nuestro impacto mediante indicadores cuantificables, incluyendo
+      residuos valorizados, hectáreas alcanzadas, desempeño hídrico, salud del suelo y análisis de ciclo de vida.
+    </p>
+  </div>
+</section>
+
+<!-- ==================== 09 · CTA ==================== -->
+<section class="cta">
+  <div class="cta__bg" aria-hidden="true">
+    <svg class="fiberfield fiberfield--light" data-fibers="18" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice"></svg>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="container cta__inner">
+    <h2 class="h2 reveal">Estamos buscando a quienes quieran construir la próxima etapa con nosotros.</h2>
+    <p class="cta__text reveal">
+      Si sos productor, vivero, investigador, empresa agropecuaria, generador de residuos o simplemente
+      creés que podemos hacer un uso más inteligente de nuestros recursos, queremos conocerte.
+    </p>
+    <div class="cta__actions reveal">
+      <a class="btn btn--light btn--lg" href="#contacto">Quiero probar Revellón</a>
+      <a class="btn btn--outline-light btn--lg" href="#contacto">Quiero conversar</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FORMULARIO ==================== -->
+<section class="section section--cream" id="contacto">
+  <div class="container">
+    <div class="contact">
+      <div class="contact__aside">
+        <p class="eyebrow reveal">Contacto</p>
+        <h2 class="h2 reveal">Hablemos.</h2>
+        <p class="contact__lead reveal">
+          Contanos quién sos y en qué te gustaría trabajar con nosotros. Respondemos todos los mensajes.
+        </p>
+        <ul class="contact__details reveal" id="contact-details" hidden></ul>
+      </div>
+
+      <form class="form reveal" id="contact-form" novalidate>
+        <div class="field">
+          <label for="f-nombre">Nombre</label>
+          <input id="f-nombre" name="nombre" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="f-empresa">Empresa / organización</label>
+          <input id="f-empresa" name="empresa" type="text" autocomplete="organization">
+        </div>
+
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+
+        <fieldset class="field field--full">
+          <legend>¿Con cuál de estos perfiles te identificás?</legend>
+          <div class="radios">
+            <label class="radio"><input type="radio" name="perfil" value="Productor"><span>Productor</span></label>
+            <label class="radio"><input type="radio" name="perfil" value="Vivero"><span>Vivero</span></label>
+            <label class="radio"><input type="radio" name="perfil" value="Growshop / comercio"><span>Growshop / comercio</span></label>
+            <label class="radio"><input type="radio" name="perfil" value="Investigador"><span>Investigador</span></label>
+            <label class="radio"><input type="radio" name="perfil" value="Productor de lana"><span>Productor de lana</span></label>
+            <label class="radio"><input type="radio" name="perfil" value="Distribuidor"><span>Distribuidor</span></label>
+            <label class="radio"><input type="radio" name="perfil" value="Inversor"><span>Inversor</span></label>
+            <label class="radio"><input type="radio" name="perfil" value="Otro"><span>Otro</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field field--full">
+          <label for="f-mensaje">Mensaje</label>
+          <textarea id="f-mensaje" name="mensaje" rows="5"></textarea>
+        </div>
+
+        <div class="field field--full form__foot">
+          <button class="btn btn--primary btn--lg" type="submit">Contactar a Revellón</button>
+          <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <p class="footer__word">REVELLÓN</p>
+      <p class="footer__claim">Biotecnología para transformar residuos en recursos.</p>
+    </div>
+
+    <nav class="footer__links" aria-label="Navegación del pie">
+      <a href="#vision">Visión</a><i>·</i>
+      <a href="#producto">Producto</a><i>·</i>
+      <a href="#id">I+D</a><i>·</i>
+      <a href="#impacto">Impacto</a><i>·</i>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <ul class="footer__details" id="footer-details" hidden></ul>
+
+    <p class="footer__legal">Argentina · 2026</p>
+  </div>
+</footer>
+
+<script src="assets/js/config.js?v=5"></script>
+<script src="assets/js/main.js?v=5" defer></script>
+</body>
+</html>
