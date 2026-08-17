@@ -45,7 +45,9 @@ ni `email`, el formulario avisa al visitante y deja el detalle técnico en la co
 `assets/img/logo-lockup.png` es el logotipo completo (emblema + EVELLON) con fondo
 transparente, recortado y reescalado desde `LogoconLetras.png`. Se usa en nav, hero y pie
 con la clase `.logo`; la proporcion es ancho = alto x 3,141, asi que basta con fijar una
-sola dimension. `assets/img/logo.jpeg` (solo el emblema) queda para el favicon y el og:image.
+sola dimension. Para el pie existe `logo-lockup-light.png`: el verde oscuro del texto y la
+macroalga pasa a crudo porque sobre el fondo del pie tenia 1,46:1 de contraste. La lana se
+conserva dorada, que ahi contrasta 4,8:1. `assets/img/logo.jpeg` (solo el emblema) queda para el favicon y el og:image.
 
 ## Criterio de contenido
 

@@ -156,9 +156,10 @@ fieldset{ margin:0; padding:0; border:0; }
 .logo--nav{ height:40px; }
 .logo--footer{ height:54px; }
 
-/* En el hero se ajusta al ancho de su columna, nunca al viewport,
-   para que no se recorte contra el overflow:hidden de la sección. */
-.logo--hero{ width:min(560px, 100cqw); }
+/* En el hero se ajusta al ancho de su columna, nunca al viewport, para que no
+   se recorte contra el overflow:hidden. A 100cqw quedaba pegado a los bordes
+   en móvil, así que se deja aire a los costados. */
+.logo--hero{ width:min(560px, 86cqw); margin-inline:auto; }
 
 .brand{ transition:opacity .3s var(--ease); }
 .brand:hover{ opacity:.75; }
