@@ -290,7 +290,8 @@
       empresa: $('#f-empresa').value.trim(),
       email:   email,
       perfil:  (form.querySelector('input[name="perfil"]:checked') || {}).value || '',
-      mensaje: $('#f-mensaje').value.trim()
+      mensaje: $('#f-mensaje').value.trim(),
+      web:     ($('#f-web') || {}).value || ''   // honeypot: vacío en una persona
     };
 
     var btn = form.querySelector('button[type="submit"]');
@@ -303,11 +304,15 @@
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
       }).then(function (r) {
+        if (r.status === 429) throw new Error('rate');
         if (!r.ok) throw new Error('HTTP ' + r.status);
         form.reset();
         setStatus(CFG.formSuccess, 'ok');
-      }).catch(function () {
-        setStatus('No pudimos enviar el mensaje. Intentá de nuevo en un momento.', 'error');
+      }).catch(function (err) {
+        setStatus(err && err.message === 'rate'
+          ? 'Recibimos varios envíos seguidos. Esperá un minuto y probá otra vez.'
+          : 'No pudimos enviar el mensaje. Escribinos a ' + (CFG.email || 'nuestro email') + ' y te respondemos.',
+          'error');
       }).then(function () {
         btn.disabled = false;
       });

@@ -4,38 +4,93 @@ Sitio estático, sin dependencias ni build. Se abre haciendo doble clic en `inde
 
 ```
 index.html
+api/
+  contacto.js      ← funcion serverless del formulario (Vercel)
 assets/
   css/styles.css
-  js/config.js     ← lo único que hace falta editar
+  js/config.js     ← lo unico que hace falta editar del front
   js/main.js
   img/logo.jpeg
 ```
 
 ## Contacto y formulario
 
-El email configurado es **revellonbiotech@gmail.com**. Se muestra en la sección Contacto
-y en el pie, y es el destinatario del formulario.
+Dominio: **revellon.ar** (Vercel). Casilla publica: **contacto@revellon.ar**, reenviada por
+ImprovMX a revellonbiotech@gmail.com.
 
-**Cómo envía hoy:** como no hay `formEndpoint`, al enviar se abre el cliente de correo del
-visitante con el mensaje ya redactado y dirigido a esa casilla. Funciona bien en celulares
-y en equipos con Outlook o Mail configurado, pero **un visitante que usa Gmail desde el
-navegador y no tiene un cliente asociado puede no ver que se abra nada**.
+**Como envia:** el formulario hace POST a `/api/contacto` (misma web, sin CORS). Esa funcion
+serverless vive en `api/contacto.js`, valida los datos y manda el aviso con la API REST de
+Resend. Sin dependencias npm: usa el `fetch` global de Node.
 
-**Para que el formulario entregue solo, sin abrir el correo del visitante:** creá un
-formulario en Formspree, Basin o Getform (tienen plan gratuito), pegá la URL que te dan
-en `formEndpoint` y listo — el código ya hace el POST y muestra el mensaje de éxito.
+```
+navegador  --POST /api/contacto-->  api/contacto.js  --Resend-->  contacto@revellon.ar
+                                                                  |  ImprovMX
+                                                                  v
+                                                        revellonbiotech@gmail.com
+```
 
-El resto de los datos se configura en el mismo archivo:
+El `From` es `formulario@revellon.ar` y el `Reply-To` es el email del visitante: contestas
+con Responder y le llega directo. Se usa una direccion distinta de `contacto@` a proposito,
+para que el aviso no parezca un mail que la casilla se manda a si misma.
 
-| Campo | Para qué sirve |
+### Variables de entorno (Vercel -> Settings -> Environment Variables)
+
+| Variable | Obligatoria | Valor |
+|---|---|---|
+| `RESEND_API_KEY` | si | La key de Resend (`re_...`) |
+| `MAIL_TO` | no | Destino del aviso. Por defecto `contacto@revellon.ar` |
+| `MAIL_FROM` | no | Remitente. Por defecto `Revellon Web <formulario@revellon.ar>`. Tiene que ser del dominio verificado en Resend |
+
+Sin `RESEND_API_KEY` la funcion responde 500 y el visitante ve un aviso con el email para
+escribir a mano. Los datos que escribio no se pierden.
+
+### DNS de revellon.ar
+
+Los registros de Resend van todos en el subdominio `send`, asi que **no tocan los MX raiz
+de ImprovMX**: el reenvio de correo entrante y el envio del formulario conviven.
+
+| Para | Tipo | Nombre | Valor |
+|---|---|---|---|
+| Web | A | `@` | `76.76.21.21` |
+| Web | CNAME | `www` | `cname.vercel-dns.com` |
+| ImprovMX (entrante) | MX | `@` | `mx1.improvmx.com` (prio 10), `mx2.improvmx.com` (prio 20) |
+| ImprovMX (entrante) | TXT | `@` | `v=spf1 include:spf.improvmx.com ~all` |
+| Resend (saliente) | MX | `send` | el que muestra Resend (`feedback-smtp....amazonses.com`) |
+| Resend (saliente) | TXT | `send` | `v=spf1 include:amazonses.com ~all` |
+| Resend (DKIM) | TXT | `resend._domainkey` | el valor `p=...` que da Resend |
+
+Copiar siempre los valores exactos del panel de Resend y del de Vercel: cambian segun la
+region y la cuenta. **Tiene que haber un solo TXT de SPF en la raiz** (el de ImprovMX); el
+de Amazon SES va en `send`, no se combinan.
+
+### Proteccion contra spam
+
+- Campo trampa (honeypot) `web`, oculto fuera de pantalla. Si viene completo la funcion
+  responde 200 y no manda nada: el bot cree que funciono.
+- Tope de 5 envios por minuto por IP. Es por instancia serverless, no distribuido: frena
+  rafagas, no un ataque coordinado. El visitante ve un aviso claro y puede reintentar.
+- Limites de largo por campo antes de armar el mail.
+
+### Probar que funciona
+
+```
+curl -X POST https://revellon.ar/api/contacto   -H "Content-Type: application/json"   -d '{"nombre":"Prueba","email":"vos@ejemplo.com","mensaje":"test"}'
+```
+
+Respuesta esperada: `{"ok":true}`. Si falla, los detalles quedan en Vercel -> Logs (nunca
+se le muestran al visitante).
+
+### El resto de config.js
+
+| Campo | Para que sirve |
 |---|---|
-| `email` | Se muestra en Contacto y en el footer. Si no hay `formEndpoint`, el formulario abre el cliente de correo con el mensaje ya redactado. |
-| `telefono`, `whatsapp`, `direccion` | Datos de contacto opcionales. |
-| `instagram`, `linkedin` | Redes opcionales. |
-| `formEndpoint` | URL que recibe el POST del formulario (Formspree, Basin, Getform, un endpoint propio…). Tiene prioridad sobre `email`. |
+| `email` | Se muestra en Contacto y en el footer, y es el fallback si `formEndpoint` queda vacio |
+| `telefono`, `whatsapp`, `direccion` | Datos de contacto opcionales |
+| `instagram`, `linkedin` | Redes opcionales |
+| `formEndpoint` | Destino del POST. Tiene prioridad sobre `email` |
+| `formSuccess` | Texto de confirmacion tras un envio exitoso |
 
-Cada campo que quede vacío simplemente no se muestra. Si no se configura ni `formEndpoint`
-ni `email`, el formulario avisa al visitante y deja el detalle técnico en la consola.
+Cada campo que quede vacio simplemente no se muestra.
 
 ## Imagenes
 
@@ -76,8 +131,8 @@ Todas las animaciones respetan `prefers-reduced-motion`.
 
 ## Publicar
 
-Al ser estático, sirve cualquier hosting: Netlify, Vercel, Cloudflare Pages o GitHub Pages.
-Se sube la carpeta tal cual, sin pasos de build.
+Se publica en **Vercel** desde el repo, sin pasos de build. El HTML y los assets se sirven
+tal cual y Vercel detecta solo la carpeta `api/` como funcion serverless (Node).
 
 Para previsualizar con un servidor local:
 
@@ -85,3 +140,7 @@ Para previsualizar con un servidor local:
 python -m http.server 8777
 # http://127.0.0.1:8777
 ```
+
+Con `python -m http.server` el formulario no funciona: no hay nadie sirviendo
+`/api/contacto`. Para probarlo entero, `npx vercel dev` (levanta estatico + funcion) con un
+archivo `.env.local` que tenga `RESEND_API_KEY`. Ese archivo no se commitea.

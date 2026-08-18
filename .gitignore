@@ -9,3 +9,7 @@ Thumbs.db
 
 # Vercel
 .vercel/
+
+# Variables locales de Vercel (nunca se commitean)
+.env*.local
+.env

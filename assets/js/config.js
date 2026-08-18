@@ -11,7 +11,7 @@
 window.REVELLON_CONFIG = {
 
   /* --- Datos de contacto (se muestran en la sección Contacto y en el footer) --- */
-  email:     'revellonbiotech@gmail.com',
+  email:     'contacto@revellon.ar',
   telefono:  '',   // ej: '+54 9 11 0000 0000'
   whatsapp:  '',   // link completo, ej: 'https://wa.me/5491100000000'
   direccion: '',   // ej: 'Buenos Aires, Argentina'
@@ -21,15 +21,14 @@ window.REVELLON_CONFIG = {
   linkedin:  '',   // URL completa
 
   /* --- Envío del formulario --------------------------------------------
-     Opción A) formEndpoint: URL que reciba un POST con los datos del
-               formulario (Formspree, Basin, Getform, un endpoint propio,
-               una Google Apps Script Web App, etc.).
-     Opción B) dejar formEndpoint vacío y completar `email`: el formulario
-               abre el cliente de correo con el mensaje ya redactado.
-     Si no se configura ninguna de las dos, el formulario avisa al visitante
-     que el canal todavía no está habilitado y no pierde los datos escritos.
+     Hoy apunta a /api/contacto: la función serverless que vive en
+     api/contacto.js y manda el aviso por Resend a contacto@revellon.ar.
+     Necesita la variable de entorno RESEND_API_KEY en Vercel.
+
+     Si se deja vacío, el formulario cae al plan B: abre el cliente de
+     correo del visitante con el mensaje ya redactado a `email`.
   --------------------------------------------------------------------- */
-  formEndpoint: '',
+  formEndpoint: '/api/contacto',
 
   /* Texto de confirmación tras un envío exitoso */
   formSuccess: '¡Gracias! Recibimos tu mensaje y te vamos a responder a la brevedad.'

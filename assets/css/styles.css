@@ -406,6 +406,9 @@ fieldset{ margin:0; padding:0; border:0; }
 
 .form{ display:grid; gap:1.25rem; }
 .field{ display:grid; gap:.45rem; }
+/* trampa para bots: fuera de pantalla en lugar de display:none, que
+   algunos bots detectan y saltean */
+.field--hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 /* sólo la etiqueta directa del campo lleva el estilo de dato;
    los <label> de cada opción de radio conservan la tipografía de texto */
 .field > label, .field > legend{
