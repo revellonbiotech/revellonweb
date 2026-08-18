@@ -274,13 +274,6 @@ fieldset{ margin:0; padding:0; border:0; }
   line-height:1.14; letter-spacing:-.035em; text-wrap:balance; color:var(--ink);
 }
 
-.pull{
-  margin-top:clamp(1.75rem,3.5vw,2.75rem); padding-left:clamp(1rem,2vw,1.75rem);
-  border-left:2px solid var(--green);
-  font-family:var(--display); font-weight:400;
-  font-size:clamp(1.2rem,1rem + 1.1vw,1.9rem);
-  line-height:1.24; letter-spacing:-.03em; max-width:46ch; color:var(--ink);
-}
 
 .thesis{
   margin-top:clamp(2rem,4.5vw,3.5rem);
@@ -301,21 +294,6 @@ fieldset{ margin:0; padding:0; border:0; }
   letter-spacing:-.03em; color:var(--green-deep); text-wrap:balance;
 }
 .sum i{ color:var(--wool-deep); font-style:normal; }
-.section--paper 
-/* ============================================================
-   DIMENSIONES DE LA FERTILIDAD
-   ============================================================ */
-.dims{
-  display:grid; gap:0; margin-top:clamp(2rem,4vw,3rem);
-  border-top:1px solid var(--line);
-}
-.dim{ padding:clamp(1.2rem,2.5vw,1.6rem) 0; border-bottom:1px solid var(--line); }
-.dim h3{
-  font-family:var(--display); font-weight:500; font-size:1.25rem;
-  letter-spacing:-.03em; margin-bottom:.35rem;
-}
-.dim p{ color:var(--ink-soft); font-size:.95rem; max-width:32ch; }
-
 /* ============================================================
    PRODUCTO
    ============================================================ */
@@ -492,7 +470,6 @@ fieldset{ margin:0; padding:0; border:0; }
    ============================================================ */
 @media (min-width:640px){
   .cards{ grid-template-columns:repeat(2,1fr); gap:1.25rem; }
-  .dims{ grid-template-columns:repeat(2,1fr); column-gap:2.5rem; }
   .form{ grid-template-columns:repeat(2,1fr); }
   .field--full{ grid-column:1 / -1; }
 }
@@ -519,7 +496,6 @@ fieldset{ margin:0; padding:0; border:0; }
 
 @media (min-width:1100px){
   .cards{ grid-template-columns:repeat(4,1fr); }
-  .dims{ grid-template-columns:repeat(4,1fr); column-gap:2rem; }
 }
 
 /* en pantallas chicas las etiquetas del ciclo compiten con el anillo */
