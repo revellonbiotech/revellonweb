@@ -57,7 +57,7 @@ de ImprovMX**: el reenvio de correo entrante y el envio del formulario conviven.
 |---|---|---|---|---|
 | Web | A / ALIAS | `@` y `www` | Los administra Vercel | ok |
 | ImprovMX (entrante) | MX | `@` | `mx1.improvmx.com` (10), `mx2.improvmx.com` (20) | ok |
-| ImprovMX (entrante) | TXT | `@` | `v=spf1 include:spf.improvmx.com ~all` | **falta** |
+| ImprovMX (entrante) | TXT | `@` | `v=spf1 include:spf.improvmx.com ~all` | ok |
 | Resend (saliente) | MX | `send` | `feedback-smtp.sa-east-1.amazonses.com` (10) | ok |
 | Resend (saliente) | TXT | `send` | `v=spf1 include:amazonses.com ~all` | ok |
 | Resend (DKIM) | TXT | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3...` | ok |
@@ -65,8 +65,9 @@ de ImprovMX**: el reenvio de correo entrante y el envio del formulario conviven.
 **Tiene que haber un solo TXT de SPF en la raiz** (el de ImprovMX). El de Amazon SES va en
 `send`, no se combinan ni se pone un segundo SPF en `@`.
 
-Verificado el 18/08/2026: el dominio esta validado en Resend y un envio de prueba desde
-`formulario@revellon.ar` devolvio HTTP 200.
+Verificado el 18/08/2026: los siete registros resuelven bien en Google y en Cloudflare, el
+dominio esta validado en Resend y un envio de prueba desde `formulario@revellon.ar`
+devolvio HTTP 200. Falta unicamente cargar `RESEND_API_KEY` en Vercel y redeployar.
 
 Para revisar el DNS sin entrar a ningun panel:
 
@@ -74,6 +75,7 @@ Para revisar el DNS sin entrar a ningun panel:
 nslookup -type=MX revellon.ar 8.8.8.8            # tienen que ser los de ImprovMX
 nslookup -type=TXT send.revellon.ar 8.8.8.8      # SPF de amazonses
 nslookup -type=TXT resend._domainkey.revellon.ar 8.8.8.8
+nslookup -type=TXT revellon.ar 8.8.8.8            # un solo SPF, el de ImprovMX
 ```
 
 ### Proteccion contra spam
