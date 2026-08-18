@@ -46,22 +46,35 @@ escribir a mano. Los datos que escribio no se pierden.
 
 ### DNS de revellon.ar
 
+El dominio esta delegado a los nameservers de Vercel (`ns1.vercel-dns.com`,
+`ns2.vercel-dns.com`), asi que los registros de la web los administra Vercel solo. Los de
+correo se agregan a mano desde el panel de DNS del proyecto.
+
 Los registros de Resend van todos en el subdominio `send`, asi que **no tocan los MX raiz
 de ImprovMX**: el reenvio de correo entrante y el envio del formulario conviven.
 
-| Para | Tipo | Nombre | Valor |
-|---|---|---|---|
-| Web | A | `@` | `76.76.21.21` |
-| Web | CNAME | `www` | `cname.vercel-dns.com` |
-| ImprovMX (entrante) | MX | `@` | `mx1.improvmx.com` (prio 10), `mx2.improvmx.com` (prio 20) |
-| ImprovMX (entrante) | TXT | `@` | `v=spf1 include:spf.improvmx.com ~all` |
-| Resend (saliente) | MX | `send` | el que muestra Resend (`feedback-smtp....amazonses.com`) |
-| Resend (saliente) | TXT | `send` | `v=spf1 include:amazonses.com ~all` |
-| Resend (DKIM) | TXT | `resend._domainkey` | el valor `p=...` que da Resend |
+| Para | Tipo | Nombre | Valor | Estado |
+|---|---|---|---|---|
+| Web | A / ALIAS | `@` y `www` | Los administra Vercel | ok |
+| ImprovMX (entrante) | MX | `@` | `mx1.improvmx.com` (10), `mx2.improvmx.com` (20) | ok |
+| ImprovMX (entrante) | TXT | `@` | `v=spf1 include:spf.improvmx.com ~all` | **falta** |
+| Resend (saliente) | MX | `send` | `feedback-smtp.sa-east-1.amazonses.com` (10) | ok |
+| Resend (saliente) | TXT | `send` | `v=spf1 include:amazonses.com ~all` | ok |
+| Resend (DKIM) | TXT | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3...` | ok |
 
-Copiar siempre los valores exactos del panel de Resend y del de Vercel: cambian segun la
-region y la cuenta. **Tiene que haber un solo TXT de SPF en la raiz** (el de ImprovMX); el
-de Amazon SES va en `send`, no se combinan.
+**Tiene que haber un solo TXT de SPF en la raiz** (el de ImprovMX). El de Amazon SES va en
+`send`, no se combinan ni se pone un segundo SPF en `@`.
+
+Verificado el 18/08/2026: el dominio esta validado en Resend y un envio de prueba desde
+`formulario@revellon.ar` devolvio HTTP 200.
+
+Para revisar el DNS sin entrar a ningun panel:
+
+```bash
+nslookup -type=MX revellon.ar 8.8.8.8            # tienen que ser los de ImprovMX
+nslookup -type=TXT send.revellon.ar 8.8.8.8      # SPF de amazonses
+nslookup -type=TXT resend._domainkey.revellon.ar 8.8.8.8
+```
 
 ### Proteccion contra spam
 

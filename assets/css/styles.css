@@ -230,7 +230,14 @@ fieldset{ margin:0; padding:0; border:0; }
 /* ============================================================
    HERO
    ============================================================ */
-.hero{ position:relative; padding-top:clamp(6.5rem,13vw,8.75rem); overflow:hidden; }
+/* el hero no es .section, asi que su padding inferior se declara aca:
+   sin el, los botones y el lockup quedan pegados al borde de la seccion
+   siguiente */
+.hero{
+  position:relative; overflow:hidden;
+  padding-top:clamp(6.5rem,13vw,8.75rem);
+  padding-bottom:clamp(3rem,6vw,5.5rem);
+}
 .hero__field{
   position:absolute; inset:0; pointer-events:none;
   background:
