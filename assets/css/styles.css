@@ -93,7 +93,7 @@ fieldset{ margin:0; padding:0; border:0; }
   box-shadow:0 1px 0 rgba(28,30,24,.07);
 }
 .nav__inner{
-  max-width:var(--maxw); margin-inline:auto; padding:.9rem var(--pad);
+  max-width:var(--maxw); margin-inline:auto; padding:1.15rem var(--pad);
   display:flex; align-items:center; gap:1.5rem;
 }
 .brand{ display:flex; align-items:center; gap:.6rem; margin-right:auto; }
@@ -133,7 +133,7 @@ fieldset{ margin:0; padding:0; border:0; }
 
 /* drawer móvil */
 .drawer{
-  position:fixed; inset:70px 0 auto 0; z-index:99;
+  position:fixed; inset:78px 0 auto 0; z-index:99;
   background:var(--cream); border-bottom:1px solid var(--line);
   padding:1.25rem var(--pad) 2rem;
   transform:translateY(-12px); opacity:0; pointer-events:none;
@@ -501,7 +501,7 @@ fieldset{ margin:0; padding:0; border:0; }
 /* en pantallas chicas las etiquetas del ciclo compiten con el anillo */
 
 /* offset para el nav fijo */
-[id]{ scroll-margin-top:90px; }
+[id]{ scroll-margin-top:98px; }
 
 /* ============================================================
    MOTION REDUCIDO
